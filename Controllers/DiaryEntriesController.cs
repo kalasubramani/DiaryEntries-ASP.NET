@@ -26,5 +26,16 @@ namespace DiaryApp.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Create(DiaryEntry obj)
+        {
+            //add the values in the obj to DB table named DiaryEntries
+            _db.DiaryEntries.Add(obj);
+            //save changes  to DB
+            _db.SaveChanges();
+            //once data is saved in DB, redirect user to the index page of DairyEntries
+            return RedirectToAction("Index");
+        }
     }
 }
