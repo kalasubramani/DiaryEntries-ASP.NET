@@ -21,5 +21,10 @@ namespace DiaryApp.Controllers
             //pass data to view
             return View(objDiaryEntryList);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
