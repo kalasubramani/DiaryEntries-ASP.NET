@@ -44,7 +44,6 @@ C:\Users\kalay\.net\Diary\DiaryApp\obj\Debug\net9.0\compressed\9vhjjubpy9-tdbxka
 C:\Users\kalay\.net\Diary\DiaryApp\obj\Debug\net9.0\compressed\tsqc7oow54-j5mq2jizvt.gz
 C:\Users\kalay\.net\Diary\DiaryApp\obj\Debug\net9.0\compressed\xf072pxe3l-06098lyss8.gz
 C:\Users\kalay\.net\Diary\DiaryApp\obj\Debug\net9.0\compressed\t2ehc82qpd-nvvlpmu67g.gz
-C:\Users\kalay\.net\Diary\DiaryApp\obj\Debug\net9.0\compressed\18rhluk5wq-s35ty4nyc5.gz
 C:\Users\kalay\.net\Diary\DiaryApp\obj\Debug\net9.0\compressed\wtyng4ywgj-pj5nd1wqec.gz
 C:\Users\kalay\.net\Diary\DiaryApp\obj\Debug\net9.0\compressed\i2rx4nn5q1-46ein0sx1k.gz
 C:\Users\kalay\.net\Diary\DiaryApp\obj\Debug\net9.0\compressed\4d7uc1rkr2-v0zj4ognzu.gz
@@ -220,3 +219,4 @@ C:\Users\kalay\.net\Diary\DiaryApp\bin\Debug\net9.0\runtimes\win\lib\net6.0\Syst
 C:\Users\kalay\.net\Diary\DiaryApp\obj\Debug\net9.0\DiaryApp.csproj.AssemblyReference.cache
 C:\Users\kalay\.net\Diary\DiaryApp\obj\Debug\net9.0\DiaryApp.csproj.Up2Date
 C:\Users\kalay\.net\Diary\DiaryApp\obj\Debug\net9.0\DiaryApp.sourcelink.json
+C:\Users\kalay\.net\Diary\DiaryApp\obj\Debug\net9.0\compressed\18rhluk5wq-9nh1zlv8vp.gz

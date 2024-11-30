@@ -16,6 +16,7 @@ namespace DiaryApp.Controllers
         }
         public IActionResult Index()
         {
+            //get the corr. table from db and convert it to a list. Then assign it to <List> obj to be passed to corr. view
             List<DiaryEntry> objDiaryEntryList = _db.DiaryEntries.ToList();
             //pass data to view
             return View(objDiaryEntryList);
