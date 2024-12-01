@@ -67,6 +67,7 @@ namespace DiaryApp.Controllers
             return View(diaryEntry);
         }
 
+        //update db with edited diary entry
         [HttpPost]
         public IActionResult Edit(DiaryEntry obj)
         {
@@ -88,6 +89,31 @@ namespace DiaryApp.Controllers
 
             //If Model state is invalid, return the values captured in the obj to the form along with the error msg from ModelSTateErr
             return View(obj);
+        }
+
+        //display the diary entry selected by user to be deleted
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            //get the DB record with given id
+            if (id == null || id == 0) return NotFound();//display 404 error message
+
+            DiaryEntry? diaryEntry = _db.DiaryEntries.Find(id);
+            if (diaryEntry == null) return NotFound();
+
+            //return view with data retrieved from sb
+            return View(diaryEntry);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(DiaryEntry obj)
+        {
+                //deletes the diary entry from db
+                _db.DiaryEntries.Remove(obj);
+                //save changes  to DB
+                _db.SaveChanges();
+                //once db is updated, redirect user to the index page of DairyEntries
+                return RedirectToAction("Index");
         }
     }
 }
