@@ -8,8 +8,8 @@ namespace DiaryApp.Models
         public int Id { get; set; }
 
         //add annotations for client side validation error messages
-        [Required(ErrorMessage ="Please enter a title!")]
-        [StringLength(100,MinimumLength =3,ErrorMessage ="Title must be between 3 to 100 characters.")]
+        //[Required(ErrorMessage ="Please enter a title!")]
+        //[StringLength(100,MinimumLength =3,ErrorMessage ="Title must be between 3 to 100 characters.")]
         public string Title { get; set; }=string.Empty;//set default value for required props or set it as non-nullable with string?
 
         [Required(ErrorMessage ="Please enter a content for diary entry!")]

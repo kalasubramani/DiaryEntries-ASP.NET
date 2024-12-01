@@ -1,6 +1,7 @@
 ﻿using DiaryApp.Data;
 using DiaryApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace DiaryApp.Controllers
 {
@@ -30,12 +31,26 @@ namespace DiaryApp.Controllers
         [HttpPost]
         public IActionResult Create(DiaryEntry obj)
         {
-            //add the values in the obj to DB table named DiaryEntries
-            _db.DiaryEntries.Add(obj);
-            //save changes  to DB
-            _db.SaveChanges();
-            //once data is saved in DB, redirect user to the index page of DairyEntries
-            return RedirectToAction("Index");
+            //add server side validations for the data entered by the user
+            if(obj!=null && obj.Title.Length < 3)
+            {
+                //add error msg to model state
+                ModelState.AddModelError("Title", "Title too short");
+            }
+
+            //update DB only if model state is valid
+            if (ModelState.IsValid)
+            {
+                //add the values in the obj to DB table named DiaryEntries
+                _db.DiaryEntries.Add(obj);
+                //save changes  to DB
+                _db.SaveChanges();
+                //once data is saved in DB, redirect user to the index page of DairyEntries
+                return RedirectToAction("Index");
+            }
+
+            //If Model state is invalid, return the values captured in the obj to the form along with the error msg from ModelSTateErr
+            return View(obj);
         }
     }
 }
