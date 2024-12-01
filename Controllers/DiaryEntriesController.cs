@@ -52,5 +52,42 @@ namespace DiaryApp.Controllers
             //If Model state is invalid, return the values captured in the obj to the form along with the error msg from ModelSTateErr
             return View(obj);
         }
+
+        //retieves data from db for the selected row
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            //get the DB record with given id
+            if (id == null || id == 0) return NotFound();//display 404 error message
+
+            DiaryEntry? diaryEntry = _db.DiaryEntries.Find(id);
+            if (diaryEntry == null) return NotFound();
+
+            //return view with data retrieved from sb
+            return View(diaryEntry);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(DiaryEntry obj)
+        {
+            //add server side validations for the data entered by the user
+            if (obj != null && obj.Title.Length < 3)                            
+                ModelState.AddModelError("Title", "Title too short");
+            
+
+            //update DB only if model state is valid
+            if (ModelState.IsValid)
+            {
+                //updates the values in the obj to DB table named DiaryEntries
+                _db.DiaryEntries.Update(obj);
+                //save changes  to DB
+                _db.SaveChanges();
+                //once data is saved in DB, redirect user to the index page of DairyEntries
+                return RedirectToAction("Index");
+            }
+
+            //If Model state is invalid, return the values captured in the obj to the form along with the error msg from ModelSTateErr
+            return View(obj);
+        }
     }
 }
